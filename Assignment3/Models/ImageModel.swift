@@ -13,7 +13,7 @@ struct ImageResults : Codable {
 
 struct ImageModel : Codable, Identifiable {
     let id : Int
-    let camera : [CameraModel]
+    let camera : CameraModel
     let img_src : String
     
 }

@@ -11,10 +11,9 @@ struct RoverDetail: View {
    
     var rover : RoverModel
     @ObservedObject var imagevm = ImageViewModel()
-
-    
     var body: some View {
         ScrollView {
+            
             VStack(alignment: .leading, spacing: 10) {
                 Text(rover.name)
                     .font(.system(size: 20))
@@ -22,13 +21,13 @@ struct RoverDetail: View {
                 InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
                                
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(imagevm.imageData.prefix(10)) {image in
-                        ForEach(image.camera) { camera in
-                            if camera.rover_id == rover.id {
-                                ImageView(url: image.img_src)                            }
+                    ForEach(imagevm.imageData) {image in
+                        if image.camera.rover_id == rover.id {
+                                ImageView(url: image.img_src)
+                                
+                            }
                             
-                        }
-                        
+                                        
                     }
                     
                 }
@@ -38,7 +37,7 @@ struct RoverDetail: View {
             .padding()
         }
         .onAppear {
-            imagevm.fetchData()
+            imagevm.fetchData(rover_name: rover.name)
         }
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 class ImageViewModel : ObservableObject {
     
     @Published private(set) var imageData = [ImageModel]()
-    private let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/latest_photos?api_key=2Ec7UNEXsLozhY0bp5Poyz8yAZQ6ciP08Qpkf9c0"
-    
-    func fetchData() {
-        if let url = URL(string: url) {
+           
+    func fetchData(rover_name : String) {
+         
+        if let url = URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/\(rover_name)/latest_photos?api_key=2Ec7UNEXsLozhY0bp5Poyz8yAZQ6ciP08Qpkf9c0") {
             URLSession
                 .shared
                 .dataTask(with: url) { (data, response, error) in
