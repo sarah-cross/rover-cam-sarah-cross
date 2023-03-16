@@ -21,7 +21,7 @@ struct RoverDetail: View {
                 InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
                                
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(imagevm.imageData) {image in
+                    ForEach(imagevm.imageData.prefix(10)) {image in
                         if image.camera.rover_id == rover.id {
                                 ImageView(url: image.img_src)
                                 
@@ -31,7 +31,7 @@ struct RoverDetail: View {
                     }
                     
                 }
-                .padding()
+               
                 
             }
             .padding()
