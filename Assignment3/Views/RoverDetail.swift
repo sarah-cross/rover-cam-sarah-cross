@@ -20,8 +20,8 @@ struct RoverDetail: View {
                     .padding(.horizontal)
                 InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(imagevm.imageData) {photo in
-                        ImageCardView(photo: photo)
+                    ForEach(imagevm.imageData) {image in
+                        ImageCardView(url: image.img_src)
                     }
                     
                 }

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ImageCardView: View {
     
-    var photo : ImageModel
+    //var photo : ImageModel
+    var url : String
     var body: some View {
        
-        AsyncImage(url: URL(string: photo.img_src)) {
+        AsyncImage(url: URL(string: url)) {
             image in image.resizable()
                 .scaledToFit()
                 .cornerRadius(10)
