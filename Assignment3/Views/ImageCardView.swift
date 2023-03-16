@@ -24,9 +24,9 @@ struct ImageCardView: View {
     }
 }
 
-/*
+
 struct ImageCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCardView(image: ImageModel( "http://mars.nasa.gov/mer/gallery/all/2/p/2208/2P322473707ESFB27MP2600L8M1-BR.JPG")
+        ImageCardView(url: "http://mars.nasa.gov/mer/gallery/all/2/p/2208/2P322473707ESFB27MP2600L8M1-BR.JPG")
     }
-} */
+} 

@@ -23,7 +23,11 @@ class RoverViewModel : ObservableObject {
                         if let data = data {
                             do {
                                 let results = try JSONDecoder().decode(RoverResults.self, from: data)
-                                self.roverData = results.rovers
+                                DispatchQueue.main.async {
+                                    self.roverData = results.rovers
+                                    
+                                }
+                                
                             }
                             catch {
                                 print(error)
