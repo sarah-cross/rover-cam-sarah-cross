@@ -19,7 +19,8 @@ struct RoverDetail: View {
                     .font(.system(size: 20))
                     .padding(.horizontal)
                 InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
-                               
+                Text("Latest Photos:")
+                    .padding(.horizontal)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(10)) {image in
                         if image.camera.rover_id == rover.id {
