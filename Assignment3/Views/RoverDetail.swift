@@ -11,6 +11,7 @@ struct RoverDetail: View {
    
     var rover : RoverModel
     @ObservedObject var imagevm = ImageViewModel()
+
     
     var body: some View {
         ScrollView {
@@ -19,9 +20,15 @@ struct RoverDetail: View {
                     .font(.system(size: 20))
                     .padding(.horizontal)
                 InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
+                               
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(imagevm.imageData) {image in
-                        ImageCardView(url: image.img_src)
+                    ForEach(imagevm.imageData.prefix(10)) {image in
+                        ForEach(image.camera) { camera in
+                            if camera.rover_id == rover.id {
+                                ImageView(url: image.img_src)                            }
+                            
+                        }
+                        
                     }
                     
                 }
@@ -29,6 +36,9 @@ struct RoverDetail: View {
                 
             }
             .padding()
+        }
+        .onAppear {
+            imagevm.fetchData()
         }
     }
 }

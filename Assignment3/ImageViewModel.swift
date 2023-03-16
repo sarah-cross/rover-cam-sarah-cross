@@ -10,7 +10,7 @@ import Foundation
 class ImageViewModel : ObservableObject {
     
     @Published private(set) var imageData = [ImageModel]()
-    private let url = "http://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/latest_photos?api_key=2Ec7UNEXsLozhY0bp5Poyz8yAZQ6ciP08Qpkf9c0"
+    private let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/latest_photos?api_key=2Ec7UNEXsLozhY0bp5Poyz8yAZQ6ciP08Qpkf9c0"
     
     func fetchData() {
         if let url = URL(string: url) {
@@ -23,7 +23,9 @@ class ImageViewModel : ObservableObject {
                         if let data = data {
                             do {
                                 let results = try JSONDecoder().decode(ImageResults.self, from: data)
-                                self.imageData = results.latest_photos
+                                DispatchQueue.main.async {
+                                    self.imageData = results.latest_photos
+                                }
                             }
                             catch {
                                 print(error)
