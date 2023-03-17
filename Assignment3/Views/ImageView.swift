@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ImageView: View {
     
-    //var camera : [CameraModel]
-    //var rover : RoverModel
     var url : String
     
     var body: some View {

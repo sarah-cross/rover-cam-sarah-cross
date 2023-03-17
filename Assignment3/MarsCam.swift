@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Assignment3App: App {
+struct MarsCam: App {
     var body: some Scene {
         WindowGroup {
             Rovers()

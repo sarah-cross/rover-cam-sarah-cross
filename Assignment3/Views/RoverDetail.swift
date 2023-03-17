@@ -10,7 +10,7 @@ import SwiftUI
 struct RoverDetail: View {
    
     var rover : RoverModel
-    @ObservedObject var imagevm = ImageViewModel()
+    @StateObject var imagevm = ImageViewModel()
     var body: some View {
         ScrollView {
             
@@ -18,7 +18,7 @@ struct RoverDetail: View {
                 Text(rover.name)
                     .font(.system(size: 20))
                     .padding(.horizontal)
-                InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status)")
+                InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status.capitalizingFirstLetter())")
                 Text("Latest Photos:")
                     .padding(.horizontal)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
@@ -43,8 +43,14 @@ struct RoverDetail: View {
     }
 }
 
-/*struct RoverDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        RoverDetail(photo: ImageModel(img_src: "https://mars.nasa.gov/mer/gallery/all/2/p/2208/2P322473707ESFB27MP2600L8M1-BR.JPG"), rover: RoverModel(from: <#Decoder#>))
+
+// from: https://www.hackingwithswift.com/example-code/strings/how-to-capitalize-the-first-letter-of-a-string
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
     }
-} */
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}

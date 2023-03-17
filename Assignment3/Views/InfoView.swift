@@ -16,7 +16,7 @@ struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(launch)
-            Text(land)
+            Text(land)            
             Text(status)
         }
         .padding()
@@ -29,3 +29,4 @@ struct InfoView_Previews: PreviewProvider {
         InfoView(launch: "Launch Date: ", land: "Landing Date: ", status: "Status: ")
     }
 }
+

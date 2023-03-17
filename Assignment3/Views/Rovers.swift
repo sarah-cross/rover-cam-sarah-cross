@@ -10,7 +10,6 @@ import SwiftUI
 struct Rovers: View {
     
     @ObservedObject var rovervm = RoverViewModel()
-    @ObservedObject var imagevm = ImageViewModel()
     
     var body: some View {
         NavigationStack {
