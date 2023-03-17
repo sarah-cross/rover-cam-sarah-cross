@@ -13,17 +13,21 @@ struct ImageView: View {
     
     var body: some View {
         AsyncImage(url: URL(string: url)) {
-            image in image.resizable()
-                .scaledToFit()
+            image in image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
                 .cornerRadius(10)
-        } placeholder: {
-            ProgressView()
-        }
-        .frame(width: 150, height: 150)
+                .clipped()
+            } placeholder: {
+                ProgressView()
+         }
+         .frame(width: 150, height: 150)
+           
     }
-            
+     
     
-    }
+}
 
 
 struct ImageCardView_Previews: PreviewProvider {
