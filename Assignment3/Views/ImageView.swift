@@ -16,13 +16,13 @@ struct ImageView: View {
             image in image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 150)
+                .frame(width: 170, height: 170)
                 .cornerRadius(10)
                 .clipped()
             } placeholder: {
                 ProgressView()
          }
-         .frame(width: 150, height: 150)
+         .frame(width: 170, height: 170)
            
     }
      

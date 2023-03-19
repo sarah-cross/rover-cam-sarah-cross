@@ -19,7 +19,7 @@ struct InfoView: View {
             Text(land)            
             Text(status)
         }
-        .padding()
+   
         
     }
 }
