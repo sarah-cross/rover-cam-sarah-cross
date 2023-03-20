@@ -31,7 +31,7 @@ struct RoverDetail: View {
                
                 
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
             .navigationTitle(rover.name)
             
         }
