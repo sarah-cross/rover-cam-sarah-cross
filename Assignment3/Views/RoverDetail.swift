@@ -19,15 +19,18 @@ struct RoverDetail: View {
                 Spacer()
                 Text("Latest Photos:")
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(imagevm.imageData.prefix(16)) {image in
+                    ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
+                                //ImageView(url: image.img_src)
+                            NavigationLink(destination: ImageDetail(url: image.img_src, date: image.earth_date, sol: image.sol, camera: image.camera.full_name)) {
                                 ImageView(url: image.img_src)
-                                
                             }
+                        }
                     }
                     .padding(.horizontal)
                     
                 }
+            
                
                 
             }
@@ -37,6 +40,7 @@ struct RoverDetail: View {
         }
         .onAppear {
             imagevm.fetchData(rover_name: rover.name)
+           
         }
     }
 }

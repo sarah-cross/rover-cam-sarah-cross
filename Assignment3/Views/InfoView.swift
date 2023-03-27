@@ -18,8 +18,11 @@ struct InfoView: View {
             Text(launch)
             Text(land)            
             Text(status)
-        }
-   
+        }.padding()
+            /*.font(.subheadline)
+            .background(.black)
+            .foregroundColor(.white)
+            .cornerRadius(10)*/
         
     }
 }
