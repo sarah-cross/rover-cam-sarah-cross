@@ -35,30 +35,32 @@ class FavoriteViewModel : ObservableObject {
     }
     
     func saveData(favorite: FavoriteModel) {
-        var ref: DocumentReference? = nil
-        ref = db.collection("favorites").addDocument(data: [
-            "url": favorite.url
+        //var ref: DocumentReference? = nil
+        db.collection("favorites").document(favorite.id!).setData([
+            "img_src": favorite.img_src
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document successfully written!")
             }
         }
     }
     
     func removeData(favorite: FavoriteModel) {
-        if let id = favorite.id {
-           let docRef = db.collection("favorites").document(id)
-            docRef.delete() { err in
+        db.collection("favorites").document(favorite.id!).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
                     print("Document successfully removed!")
                 }
-            }
         }
+        
         
     }
     
+}
+
+class FavoriteSettings: ObservableObject {
+    @Published var isFavorited = false
 }

@@ -19,10 +19,10 @@ struct InfoView: View {
             Text(land)            
             Text(status)
         }.padding()
-            /*.font(.subheadline)
-            .background(.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.orange.opacity(0.6))
             .foregroundColor(.white)
-            .cornerRadius(10)*/
+            .cornerRadius(10)
         
     }
 }

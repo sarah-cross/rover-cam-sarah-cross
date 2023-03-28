@@ -15,7 +15,7 @@ struct Favorites: View {
     var body: some View {
         ScrollView {
             ForEach(favorites) { favorite in
-                AsyncImage(url: URL(string: favorite.url)) {
+                AsyncImage(url: URL(string: favorite.img_src)) {
                     image in image
                         .resizable()
                         .aspectRatio(contentMode: .fill)

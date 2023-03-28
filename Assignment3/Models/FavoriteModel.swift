@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct FavoriteModel : Codable, Identifiable {
+    //@DocumentID var id : String?
     @DocumentID var id : String?
-    var url : String
+    var img_src : String
 }

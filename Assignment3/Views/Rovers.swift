@@ -11,6 +11,7 @@ struct Rovers: View {
     
     @ObservedObject var rovervm = RoverViewModel()
     @StateObject var favoritevm = FavoriteViewModel()
+    @StateObject var settings = FavoriteSettings()
     
     var body: some View {
         NavigationStack {
@@ -20,11 +21,13 @@ struct Rovers: View {
                         RoverDetail(rover: rover)
                         } label: {
                             Text(rover.name)
+                                                                
                         }
                         .padding(50)
                         .font(.title.bold())
                         .background(
-                            Image("\(rover.name)").resizable()
+                            Image("\(rover.name)")
+                                .resizable()
                                 .aspectRatio(contentMode: .fill))
                         .foregroundColor(.white)
                         .cornerRadius(10)
@@ -44,6 +47,7 @@ struct Rovers: View {
             }))
             
         }
+        .environmentObject(settings)
     }
 }
 
