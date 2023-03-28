@@ -20,15 +20,23 @@ struct Rovers: View {
                     NavigationLink {
                         RoverDetail(rover: rover)
                         } label: {
-                            Text(rover.name)
+                            VStack(alignment: .leading) {
+                                Text(rover.name)
+                                    .font(.title2)
+                                Text(rover.status)
+                                
+                            }
+                            
+                                
                                                                 
                         }
                         .padding(50)
-                        .font(.title.bold())
+                        
                         .background(
                             Image("\(rover.name)")
                                 .resizable()
-                                .aspectRatio(contentMode: .fill))
+                                .aspectRatio(contentMode: .fill)
+                                .overlay(Color.black).opacity(0.5))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }

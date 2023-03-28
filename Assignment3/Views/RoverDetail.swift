@@ -15,16 +15,16 @@ struct RoverDetail: View {
         ScrollView {
             
             VStack(alignment: .leading, spacing: 10) {
-                InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status.capitalizingFirstLetter())")
-                Spacer()
-                Text("Latest Photos:")
+                //InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status.capitalizingFirstLetter())")
+                //Spacer()
+                Text("Latest Photos:").font(.headline)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
                             NavigationLink(destination: ImageDetail(image: image)) { ImageView(url: image.img_src)}
                         }
                     }
-                    //.padding(.horizontal)
+                
                     
                 }
             

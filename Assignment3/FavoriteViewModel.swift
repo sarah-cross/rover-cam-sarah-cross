@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 
 class FavoriteViewModel : ObservableObject {
-    
+        
     @Published private(set) var favoriteData = [FavoriteModel]()
     let db = Firestore.firestore()
     
@@ -35,10 +35,9 @@ class FavoriteViewModel : ObservableObject {
     }
     
     func saveData(favorite: FavoriteModel) {
-        //var ref: DocumentReference? = nil
         db.collection("favorites").document(favorite.id!).setData([
             "img_src": favorite.img_src
-        ]) { err in
+        ]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
             } else {
@@ -61,6 +60,4 @@ class FavoriteViewModel : ObservableObject {
     
 }
 
-class FavoriteSettings: ObservableObject {
-    @Published var isFavorited = false
-}
+

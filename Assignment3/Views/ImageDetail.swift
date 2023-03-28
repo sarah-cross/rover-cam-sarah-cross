@@ -12,7 +12,6 @@ struct ImageDetail: View {
     var image : ImageModel
     @StateObject var favoritevm = FavoriteViewModel()
     @State var favorite = FavoriteModel(id: "", img_src: "")
-    //@State private var isFavorited = false
     @EnvironmentObject var settings: FavoriteSettings
     
     var body: some View {
@@ -43,10 +42,12 @@ struct ImageDetail: View {
                         if settings.isFavorited == false {
                             favoritevm.saveData(favorite: favorite)
                             settings.isFavorited.toggle()
+                           // UserDefaults.standard.set(true, forKey: "Favorites")
                         }
                         else {
                             favoritevm.removeData(favorite: favorite)
                             settings.isFavorited.toggle()
+                            //UserDefaults.standard.set(false, forKey: "Favorites")
                         }
                     }, label: {
                         Image(systemName: settings.isFavorited ? "star.fill" : "star").font(.headline)
