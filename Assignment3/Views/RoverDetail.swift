@@ -13,10 +13,7 @@ struct RoverDetail: View {
     @StateObject var imagevm = ImageViewModel()
     var body: some View {
         ScrollView {
-            
             VStack(alignment: .leading, spacing: 10) {
-                //InfoView(launch: "Launch Date: \(rover.launch_date)", land: "Landing Date: \(rover.landing_date)", status: "Status: \(rover.status.capitalizingFirstLetter())")
-                //Spacer()
                 Text("Latest Photos:").font(.headline)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
@@ -40,16 +37,6 @@ struct RoverDetail: View {
            
         }
     }
-}
 
 
-// from: https://www.hackingwithswift.com/example-code/strings/how-to-capitalize-the-first-letter-of-a-string
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
 }

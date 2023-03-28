@@ -22,7 +22,7 @@ struct Rovers: View {
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(rover.name)
-                                    .font(.title2)
+                                    .font(.title)
                                 Text(rover.status)
                                 
                             }
@@ -30,7 +30,7 @@ struct Rovers: View {
                                 
                                                                 
                         }
-                        .padding(50)
+                        .padding(40)
                         
                         .background(
                             Image("\(rover.name)")

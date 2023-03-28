@@ -10,7 +10,6 @@
 		4611D1BF29C279B4005034FD /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1BE29C279B4005034FD /* RoverModel.swift */; };
 		4611D1C229C27C98005034FD /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1C129C27C98005034FD /* ImageModel.swift */; };
 		4611D1C429C27DB5005034FD /* RoverDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1C329C27DB5005034FD /* RoverDetail.swift */; };
-		4611D1C629C2801F005034FD /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1C529C2801F005034FD /* InfoView.swift */; };
 		4611D1C829C285D0005034FD /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1C729C285D0005034FD /* ImageView.swift */; };
 		4611D1CA29C291DA005034FD /* RoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1C929C291DA005034FD /* RoverViewModel.swift */; };
 		4611D1CC29C2D218005034FD /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4611D1CB29C2D218005034FD /* ImageViewModel.swift */; };
@@ -32,7 +31,6 @@
 		4611D1BE29C279B4005034FD /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
 		4611D1C129C27C98005034FD /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		4611D1C329C27DB5005034FD /* RoverDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetail.swift; sourceTree = "<group>"; };
-		4611D1C529C2801F005034FD /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		4611D1C729C285D0005034FD /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		4611D1C929C291DA005034FD /* RoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewModel.swift; sourceTree = "<group>"; };
 		4611D1CB29C2D218005034FD /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 			children = (
 				ACF5E04129BE957F00DD981A /* Rovers.swift */,
 				4611D1C329C27DB5005034FD /* RoverDetail.swift */,
-				4611D1C529C2801F005034FD /* InfoView.swift */,
 				4611D1C729C285D0005034FD /* ImageView.swift */,
 				4611D1D929C80D2A005034FD /* ImageDetail.swift */,
 				46BAA87B29D20F000091BF45 /* Favorites.swift */,
@@ -216,7 +213,6 @@
 				ACF5E04029BE957F00DD981A /* MarsCam.swift in Sources */,
 				4611D1C429C27DB5005034FD /* RoverDetail.swift in Sources */,
 				4611D1CA29C291DA005034FD /* RoverViewModel.swift in Sources */,
-				4611D1C629C2801F005034FD /* InfoView.swift in Sources */,
 				4611D1C229C27C98005034FD /* ImageModel.swift in Sources */,
 				46BAA88429D210180091BF45 /* FavoriteViewModel.swift in Sources */,
 			);
