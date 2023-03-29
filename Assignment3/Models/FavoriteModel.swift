@@ -13,10 +13,5 @@ struct FavoriteModel : Codable, Identifiable {
     var img_src : String
 }
 
-// ? need this?
-class FavoriteSettings: ObservableObject {
-    @Published var isFavorited = false
-    private let saveKey = "Favorites"
-    let defaults = UserDefaults.standard
-}
+
 

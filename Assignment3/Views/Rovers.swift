@@ -11,7 +11,7 @@ struct Rovers: View {
     
     @ObservedObject var rovervm = RoverViewModel()
     @StateObject var favoritevm = FavoriteViewModel()
-    @StateObject var settings = FavoriteSettings()
+
     
     var body: some View {
         NavigationStack {
@@ -55,7 +55,7 @@ struct Rovers: View {
             }))
             
         }
-        .environmentObject(settings)
+    
     }
 }
 

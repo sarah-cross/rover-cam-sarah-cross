@@ -11,6 +11,8 @@ struct RoverDetail: View {
    
     var rover : RoverModel
     @StateObject var imagevm = ImageViewModel()
+    @State var isFavorited = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -18,7 +20,7 @@ struct RoverDetail: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
-                            NavigationLink(destination: ImageDetail(image: image)) { ImageView(url: image.img_src)}
+                            NavigationLink(destination: ImageDetail(image: image, isFavorited: $isFavorited)) { ImageView(url: image.img_src)}
                         }
                     }
                 

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Favorites: View {
     
-    //@StateObject var favoritevm = FavoriteViewModel()
     var favorites : [FavoriteModel]
     
     var body: some View {
