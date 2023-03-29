@@ -10,6 +10,8 @@ import SwiftUI
 struct Rovers: View {
     
     @ObservedObject var rovervm = RoverViewModel()
+    @StateObject var favoritevm = FavoriteViewModel()
+
     
     var body: some View {
         NavigationStack {
@@ -18,18 +20,42 @@ struct Rovers: View {
                     NavigationLink {
                         RoverDetail(rover: rover)
                         } label: {
-                            Text(rover.name)
+                            VStack(alignment: .leading) {
+                                Text(rover.name)
+                                    .font(.title)
+                                Text(rover.status)
+                                
+                            }
+                            
+                                
+                                                                
                         }
+                        .padding(40)
+                        
+                        .background(
+                            Image("\(rover.name)")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .overlay(Color.black).opacity(0.5))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
             }
             .onAppear {
                 rovervm.fetchData()
-               
+                favoritevm.fetchData()
                 
             }
             .listStyle(.grouped)
             .navigationTitle("Mars Rovers")
+            .navigationBarItems(trailing: Button(action: {}, label: {
+                NavigationLink(destination: FavoritesView(favorites: favoritevm.favoriteData)) {
+                    Text("Favorites")
+                }
+            }))
+            
         }
+    
     }
 }
 
