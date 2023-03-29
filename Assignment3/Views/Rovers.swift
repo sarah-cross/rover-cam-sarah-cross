@@ -49,7 +49,7 @@ struct Rovers: View {
             .listStyle(.grouped)
             .navigationTitle("Mars Rovers")
             .navigationBarItems(trailing: Button(action: {}, label: {
-                NavigationLink(destination: Favorites(favorites: favoritevm.favoriteData)) {
+                NavigationLink(destination: FavoritesView(favorites: favoritevm.favoriteData)) {
                     Text("Favorites")
                 }
             }))

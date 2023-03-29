@@ -18,7 +18,7 @@
 		46BAA87629D20D4E0091BF45 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 46BAA87529D20D4E0091BF45 /* FirebaseAnalytics */; };
 		46BAA87829D20D4E0091BF45 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 46BAA87729D20D4E0091BF45 /* FirebaseFirestore */; };
 		46BAA87A29D20D4E0091BF45 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46BAA87929D20D4E0091BF45 /* FirebaseFirestoreSwift */; };
-		46BAA87C29D20F000091BF45 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAA87B29D20F000091BF45 /* Favorites.swift */; };
+		46BAA87C29D20F000091BF45 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAA87B29D20F000091BF45 /* FavoritesView.swift */; };
 		46BAA87E29D20F370091BF45 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAA87D29D20F370091BF45 /* FavoriteModel.swift */; };
 		46BAA88429D210180091BF45 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAA88329D210180091BF45 /* FavoriteViewModel.swift */; };
 		ACF5E04029BE957F00DD981A /* MarsCam.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* MarsCam.swift */; };
@@ -37,7 +37,7 @@
 		4611D1CD29C3D371005034FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4611D1D929C80D2A005034FD /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		46BAA87229D20CB70091BF45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		46BAA87B29D20F000091BF45 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		46BAA87B29D20F000091BF45 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		46BAA87D29D20F370091BF45 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		46BAA88329D210180091BF45 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,7 +68,7 @@
 				4611D1C329C27DB5005034FD /* RoverDetail.swift */,
 				4611D1C729C285D0005034FD /* ImageView.swift */,
 				4611D1D929C80D2A005034FD /* ImageDetail.swift */,
-				46BAA87B29D20F000091BF45 /* Favorites.swift */,
+				46BAA87B29D20F000091BF45 /* FavoritesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 				46BAA87E29D20F370091BF45 /* FavoriteModel.swift in Sources */,
 				4611D1CC29C2D218005034FD /* ImageViewModel.swift in Sources */,
 				4611D1DA29C80D2A005034FD /* ImageDetail.swift in Sources */,
-				46BAA87C29D20F000091BF45 /* Favorites.swift in Sources */,
+				46BAA87C29D20F000091BF45 /* FavoritesView.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* MarsCam.swift in Sources */,
 				4611D1C429C27DB5005034FD /* RoverDetail.swift in Sources */,
 				4611D1CA29C291DA005034FD /* RoverViewModel.swift in Sources */,

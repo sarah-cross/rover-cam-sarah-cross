@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Favorites: View {
+struct FavoritesView: View {
     
     var favorites : [FavoriteModel]
     

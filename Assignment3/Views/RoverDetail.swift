@@ -11,7 +11,7 @@ struct RoverDetail: View {
    
     var rover : RoverModel
     @StateObject var imagevm = ImageViewModel()
-    @State var isFavorited = false
+    @State var isFavorited = false    
     
     var body: some View {
         ScrollView {
@@ -36,6 +36,7 @@ struct RoverDetail: View {
         }
         .onAppear {
             imagevm.fetchData(rover_name: rover.name)
+
            
         }
     }
