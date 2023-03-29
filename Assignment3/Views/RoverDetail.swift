@@ -16,7 +16,7 @@ struct RoverDetail: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Latest Photos:").font(.headline)
+                Text("Latest Photos").font(.headline)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
