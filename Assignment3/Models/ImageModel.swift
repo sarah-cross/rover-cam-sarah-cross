@@ -18,6 +18,7 @@ struct ImageModel : Codable, Identifiable {
     let img_src : String
     let earth_date : String
     
+    
 }
 
 struct CameraModel : Codable, Identifiable {
