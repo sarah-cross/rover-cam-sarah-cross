@@ -49,15 +49,19 @@ class FavoriteViewModel : ObservableObject {
     }
     
     func contains(favorite: FavoriteModel) -> Bool {
+        var result = false
         let docRef = db.collection("favorites").document(favorite.id!)
-        docRef.getDocument  { (document, error) in
-             if let document = document, document.exists {
-                return true
-             } else {
-               return false
-             }
-          }
-        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                result = true
+            } else {
+                print("Document does not exist")
+                result = false
+            }
+        }
+        return result
         
     }
     
