@@ -14,19 +14,43 @@ struct ImageView: View {
     
     var body: some View {
         
-        AsyncImage(url: URL(string: image.img_src)) {
-            image in image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 170, height: 170)
-                .cornerRadius(10)
-                .clipped()
-            
+        if favorites.contains(image) {
+            AsyncImage(url: URL(string: image.img_src)) {
+                image in image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 170, height: 170)
+                    .cornerRadius(10)
+                    .clipped()
+                
             } placeholder: {
                 ProgressView()
-         }
-         .frame(width: 170, height: 170)
+            }
+            .frame(width: 170, height: 170)
+            .overlay(starOverlay, alignment: .bottomTrailing)
+        }
+        else {
+            AsyncImage(url: URL(string: image.img_src)) {
+                image in image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 170, height: 170)
+                    .cornerRadius(10)
+                    .clipped()
+                
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 170, height: 170)
+        }
+         
            
+    }
+    
+    private var starOverlay: some View {
+        Image(systemName: "star.fill")
+            .foregroundColor(.white)
+            .padding(10)
     }
     
 
