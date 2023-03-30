@@ -10,7 +10,7 @@ import SwiftUI
 struct Rovers: View {
     
     @ObservedObject var rovervm = RoverViewModel()
-    @StateObject var favoritevm = FavoriteViewModel()
+    @StateObject var favorites = FavoriteViewModel()
 
     
     var body: some View {
@@ -43,18 +43,19 @@ struct Rovers: View {
             }
             .onAppear {
                 rovervm.fetchData()
-                favoritevm.fetchData()
+                //favoritevm.fetchData()
                 
             }
             .listStyle(.grouped)
             .navigationTitle("Mars Rovers")
             .navigationBarItems(trailing: Button(action: {}, label: {
-                NavigationLink(destination: FavoritesView(favorites: favoritevm.favoriteData)) {
+                NavigationLink(destination: FavoritesView()) {
                     Text("Favorites")
                 }
             }))
             
         }
+        .environmentObject(favorites)
     
     }
 }
