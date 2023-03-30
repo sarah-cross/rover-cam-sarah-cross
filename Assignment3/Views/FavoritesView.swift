@@ -9,22 +9,28 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    var favorites : [FavoriteModel]
+    @EnvironmentObject var favorites : FavoriteViewModel
     
     var body: some View {
+        let favoriteImages: Set<String> = self.favorites.getFavorites()
+        let favoriteArray = Array(favoriteImages)
+
         ScrollView {
-            ForEach(favorites) { favorite in
-                AsyncImage(url: URL(string: favorite.img_src)) {
-                    image in image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+            VStack {
+                ForEach(favoriteArray, id: \.self) { favorite in
                     
-                } placeholder: {
-                    ProgressView()
+                    AsyncImage(url: URL(string: favorite)){
+                        image in image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        
+                    } placeholder: {
+                        ProgressView()
+                    }
                 }
+                
             }
         }
-        .navigationTitle("Favorites")
         
     }
 }

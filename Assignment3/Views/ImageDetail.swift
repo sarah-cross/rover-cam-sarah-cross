@@ -10,9 +10,7 @@ import SwiftUI
 struct ImageDetail: View {
     
     var image : ImageModel
-    @StateObject var favoritevm = FavoriteViewModel()
-    @State var favorite = FavoriteModel(id: "", img_src: "")
-   // @Binding var isFavorited : Bool
+    @EnvironmentObject var favorites : FavoriteViewModel
     
     var body: some View {
         
@@ -37,18 +35,14 @@ struct ImageDetail: View {
                     Text("Photo taken on:\nEarth date \(image.earth_date)\nMartian sol day \(image.sol)")
                     Spacer()
                     Button(action: {
-                        favorite.id = String(image.id)
-                        favorite.img_src = image.img_src
-                        if favoritevm.contains(favorite: favorite) {
-                            favoritevm.removeData(favorite: favorite)
-                            
+                        if favorites.contains(image) {
+                            favorites.remove(image)
                         }
                         else {
-                            favoritevm.saveData(favorite: favorite)
-                            //UserDefaults.standard.set(false, forKey: "Favorites")
+                            favorites.add(image)
                         }
                     }, label: {
-                        Image(systemName: favoritevm.contains(favorite: favorite) ? "star.fill" : "star").font(.headline)
+                        Image(systemName: favorites.contains(image) ? "star.fill" : "star").font(.headline)
                         
                     })
                     
