@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 struct FavoriteModel : Codable, Identifiable {    
     @DocumentID var id : String?
     var img_src : String
+    //var isFavorited : Bool
 }
 
 

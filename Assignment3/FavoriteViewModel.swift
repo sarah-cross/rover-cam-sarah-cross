@@ -36,7 +36,9 @@ class FavoriteViewModel : ObservableObject {
     
     func saveData(favorite: FavoriteModel) {
         db.collection("favorites").document(favorite.id!).setData([
-            "img_src": favorite.img_src
+            "img_src": favorite.img_src,
+            "isFavorited": true
+            
         ]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -44,6 +46,19 @@ class FavoriteViewModel : ObservableObject {
                 print("Document successfully written!")
             }
         }
+    }
+    
+    func contains(favorite: FavoriteModel) -> Bool {
+        let docRef = db.collection("favorites").document(favorite.id!)
+        docRef.getDocument  { (document, error) in
+             if let document = document, document.exists {
+                return true
+             } else {
+               return false
+             }
+          }
+        
+        
     }
     
     func removeData(favorite: FavoriteModel) {

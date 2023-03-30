@@ -17,7 +17,7 @@ struct ImageModel : Codable, Identifiable {
     let camera : CameraModel
     let img_src : String
     let earth_date : String
-    
+   //var isFavorited : Bool = false
     
 }
 

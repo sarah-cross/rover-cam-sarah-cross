@@ -12,7 +12,7 @@ struct ImageDetail: View {
     var image : ImageModel
     @StateObject var favoritevm = FavoriteViewModel()
     @State var favorite = FavoriteModel(id: "", img_src: "")
-    @Binding var isFavorited : Bool
+   // @Binding var isFavorited : Bool
     
     var body: some View {
         
@@ -39,18 +39,16 @@ struct ImageDetail: View {
                     Button(action: {
                         favorite.id = String(image.id)
                         favorite.img_src = image.img_src
-                        if isFavorited == false {
-                            favoritevm.saveData(favorite: favorite)
-                            isFavorited.toggle()
-                           // UserDefaults.standard.set(true, forKey: "Favorites")
+                        if favoritevm.contains(favorite: favorite) {
+                            favoritevm.removeData(favorite: favorite)
+                            
                         }
                         else {
-                            favoritevm.removeData(favorite: favorite)
-                            isFavorited.toggle()
+                            favoritevm.saveData(favorite: favorite)
                             //UserDefaults.standard.set(false, forKey: "Favorites")
                         }
                     }, label: {
-                        Image(systemName: isFavorited ? "star.fill" : "star").font(.headline)
+                        Image(systemName: favoritevm.contains(favorite: favorite) ? "star.fill" : "star").font(.headline)
                         
                     })
                     

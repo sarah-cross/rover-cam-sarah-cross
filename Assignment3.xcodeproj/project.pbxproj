@@ -66,9 +66,9 @@
 			children = (
 				ACF5E04129BE957F00DD981A /* Rovers.swift */,
 				4611D1C329C27DB5005034FD /* RoverDetail.swift */,
-				4611D1C729C285D0005034FD /* ImageView.swift */,
 				4611D1D929C80D2A005034FD /* ImageDetail.swift */,
 				46BAA87B29D20F000091BF45 /* FavoritesView.swift */,
+				4611D1C729C285D0005034FD /* ImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
