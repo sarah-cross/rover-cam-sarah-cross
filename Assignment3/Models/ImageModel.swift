@@ -28,9 +28,3 @@ struct CameraModel : Codable, Identifiable {
     let full_name : String
 } 
 
-extension ImageModel: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
-            ProxyRepresentation(exporting: \.img_src)
-        }
-    
-}

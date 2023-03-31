@@ -70,9 +70,3 @@ struct ImageDetail: View {
     }
     
 }
-
-/*struct ImageDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageDetail(url: "https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/03773/opgs/edr/fcam/FRB_732455449EDR_F1001168FHAZ00337M_.JPG", date: "image detail", sol: 1, camera: "Front Hazard Avoidance Camera")
-    }
-} */
