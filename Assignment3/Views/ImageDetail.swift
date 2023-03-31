@@ -13,8 +13,6 @@ struct ImageDetail: View {
     @EnvironmentObject var favorites : FavoriteViewModel
     
     var body: some View {
-        
-        
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 Text("\(image.camera.full_name)")
@@ -35,14 +33,18 @@ struct ImageDetail: View {
                     Text("Photo taken on:\nEarth date \(image.earth_date)\nMartian sol day \(image.sol)")
                     Spacer()
                     Button(action: {
-                        if favorites.contains(image) {
-                            favorites.remove(image)
+                        if favorites.contains(image: image) {
+                            favorites.remove(image: image)
                         }
                         else {
-                            favorites.add(image)
+                            favorites.add(image: image)
                         }
                     }, label: {
-                        Image(systemName: favorites.contains(image) ? "star.fill" : "star").font(.headline)
+                        ZStack {
+                            
+                            Image(systemName: favorites.contains(image: image) ? "star.fill" : "star").font(.headline)
+
+                        }
                         
                     })
                     

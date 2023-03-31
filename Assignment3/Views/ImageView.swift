@@ -14,7 +14,7 @@ struct ImageView: View {
     
     var body: some View {
         
-        if favorites.contains(image) {
+        if favorites.contains(image: image) {
             AsyncImage(url: URL(string: image.img_src)) {
                 image in image
                     .resizable()
@@ -43,8 +43,8 @@ struct ImageView: View {
             }
             .frame(width: 170, height: 170)
         }
-         
-           
+        
+        
     }
     
     private var starOverlay: some View {
@@ -53,13 +53,13 @@ struct ImageView: View {
             .padding(10)
     }
     
-
+    
 }
 
 
 /*struct ImageCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageView(url: "http://mars.nasa.gov/mer/gallery/all/2/p/2208/2P322473707ESFB27MP2600L8M1-BR.JPG")
-    }
-} */
+ static var previews: some View {
+ ImageView(url: "http://mars.nasa.gov/mer/gallery/all/2/p/2208/2P322473707ESFB27MP2600L8M1-BR.JPG")
+ }
+ } */
 
