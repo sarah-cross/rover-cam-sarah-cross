@@ -21,7 +21,7 @@ struct RoverDetail: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
-                            NavigationLink(destination: ImageDetail(image: image)) {
+                            NavigationLink(destination: ImageDetail(image: image, rover: rover)) {
                                 ImageView(image: image)
                             }
                         }

@@ -10,17 +10,23 @@ import SwiftUI
 struct ImageDetail: View {
     
     var image : ImageModel
+    var rover : RoverModel
     @EnvironmentObject var favorites : FavoriteViewModel
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                Text("\(image.camera.full_name)")
-                    .padding()
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.black.opacity(0.8))
-                    .foregroundColor(.white)
+                ZStack(alignment: .trailing){
+                    Text("\(image.camera.full_name)")
+                        .padding()
+                        .font(.footnote)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.black.opacity(0.8))
+                        .foregroundColor(.white)
+                   
+                    ShareLink(item: image.img_src) { Label("", systemImage:  "square.and.arrow.up").font(.headline)}
+                            .foregroundColor(.white)
+                            .padding(10)                }
                 AsyncImage(url: URL(string: image.img_src)) {
                     image in image
                         .resizable()
@@ -40,8 +46,7 @@ struct ImageDetail: View {
                             favorites.add(image: image)
                         }
                     }, label: {
-                        ZStack {
-                            
+                        ZStack {                            
                             Image(systemName: favorites.contains(image: image) ? "star.fill" : "star").font(.headline)
 
                         }
@@ -52,7 +57,7 @@ struct ImageDetail: View {
                     
                 }
                 .padding()
-                .font(.caption)
+                .font(.footnote)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.8))
                 .foregroundColor(.white)

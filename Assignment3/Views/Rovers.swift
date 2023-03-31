@@ -43,7 +43,6 @@ struct Rovers: View {
             }
             .onAppear {
                 rovervm.fetchData()
-                //favoritevm.fetchData()
                 
             }
             .listStyle(.grouped)

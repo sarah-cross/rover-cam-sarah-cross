@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreTransferable
 
 struct ImageResults : Codable {
     let latest_photos : [ImageModel]
@@ -19,7 +20,6 @@ struct ImageModel : Codable, Identifiable {
     let img_src : String
     let earth_date : String
    
-    
 }
 
 struct CameraModel : Codable, Identifiable {
@@ -27,3 +27,10 @@ struct CameraModel : Codable, Identifiable {
     let rover_id : Int
     let full_name : String
 } 
+
+extension ImageModel: Transferable {
+    static var transferRepresentation: some TransferRepresentation {
+            ProxyRepresentation(exporting: \.img_src)
+        }
+    
+}
