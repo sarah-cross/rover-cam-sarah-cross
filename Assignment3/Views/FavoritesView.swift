@@ -10,9 +10,11 @@ import SwiftUI
 struct FavoritesView: View {
     
     @EnvironmentObject var favorites : FavoriteViewModel
+    @State var refresh: Bool = false
     
     var body: some View {
-        let favoriteImages: Set<String> = self.favorites.getFavorites()
+        
+        var favoriteImages: Set<String> = self.favorites.getFavorites()
         var favoriteArray = Array(favoriteImages)
         
         ScrollView {
@@ -30,10 +32,19 @@ struct FavoritesView: View {
                         }
                         
                         Button {
-                            if let index = favoriteArray.firstIndex(of: favorite) {
-                                favoriteArray.remove(at: index)
-
-                            }
+                            favoriteArray.removeAll(where: {$0 == favorite})
+                            print("This is after removing a favorite from the array: \(favoriteArray)")
+                            
+                            // printing the array shows that the image is being removed from the array
+                            // but it is not updated in the favorites view model
+                            // printing here shows nothing happened
+                            // Array needs to be turned back into userDefault data?
+                            
+                            favoriteImages = self.favorites.getFavorites()
+                            favoriteArray = Array(favoriteImages)
+                            print("This is after calling getFavorites: \(favoriteArray)")
+                            update()
+                            
                             
                         } label: {
                             Image(systemName: "trash")
@@ -52,6 +63,9 @@ struct FavoritesView: View {
         
     }
     
+    func update() {
+        refresh.toggle()
+    }
     
 }
 

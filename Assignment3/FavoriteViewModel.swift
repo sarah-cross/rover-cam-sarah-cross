@@ -15,6 +15,7 @@ class FavoriteViewModel: ObservableObject {
     private var favorites: Set<String>
     let defaults = UserDefaults.standard
     
+    
     init() {
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Favorites") as? Data {
@@ -48,11 +49,11 @@ class FavoriteViewModel: ObservableObject {
         if let encoded = try? JSONEncoder().encode(favorites) {
             defaults.set(encoded, forKey: "Favorites")
             
-        }
-       
     }
     
-    
+       
+}
+ 
         
  /*   @Published private(set) var favoriteData = [FavoriteModel]()
     let db = Firestore.firestore()
