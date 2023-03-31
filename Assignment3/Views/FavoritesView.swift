@@ -13,26 +13,46 @@ struct FavoritesView: View {
     
     var body: some View {
         let favoriteImages: Set<String> = self.favorites.getFavorites()
-        let favoriteArray = Array(favoriteImages)
-
+        var favoriteArray = Array(favoriteImages)
+        
         ScrollView {
             VStack {
                 ForEach(favoriteArray, id: \.self) { favorite in
-                    
-                    AsyncImage(url: URL(string: favorite)){
-                        image in image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
+                    ZStack (alignment: .bottomTrailing) {
+                        AsyncImage(url: URL(string: favorite)){
+                            image in image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                            
+                            
+                        } placeholder: {
+                            ProgressView()
+                        }
                         
-                    } placeholder: {
-                        ProgressView()
+                        Button {
+                            if let index = favoriteArray.firstIndex(of: favorite) {
+                                favoriteArray.remove(at: index)
+
+                            }
+                            
+                        } label: {
+                            Image(systemName: "trash")
+                                .foregroundColor(.white)
+                                .padding(10)
+                        }
                     }
+                    
+                    
                 }
                 
+                
             }
+            .navigationTitle("Favorites")
         }
         
     }
+    
+    
 }
 
 /*struct Favorites_Previews: PreviewProvider {
