@@ -21,18 +21,13 @@ struct RoverDetail: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(imagevm.imageData.prefix(20)) {image in
                         if image.camera.rover_id == rover.id {
-                            NavigationLink(destination: ImageDetail(image: image)) {ImageView(image: image)}
-                            
-                            
+                            NavigationLink(destination: ImageDetail(image: image)) {
+                                ImageView(image: image)
+                            }
                         }
                         
                     }
-                    
-                    
                 }
-                
-                
-                
             }
             .padding(.horizontal, 20)
             .navigationTitle(rover.name)
