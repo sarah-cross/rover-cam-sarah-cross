@@ -21,7 +21,8 @@ struct FavoritesView: View {
                         
                         // Caption above image
                         HStack {
-                            Text("\(favorite.camera.full_name)")
+                            var roverName = getRoverName(id: favorite.camera.rover_id)
+                            Text("\(roverName)\n\(favorite.camera.full_name)")
                             Spacer()
                             ShareLink(item: favorite.img_src) { Label("", systemImage:  "square.and.arrow.up")}
                                 .foregroundColor(.white)
@@ -75,5 +76,16 @@ struct FavoritesView: View {
             }
         }
     }
-    
+    func getRoverName(id : Int) -> String {
+        var roverName: String
+        switch id {
+        case 5: roverName = "Curiosity"
+        case 7: roverName = "Spirit"
+        case 6: roverName = "Opportunity"
+        case 8: roverName = "Perseverance"
+        default: roverName = ""
+        }
+        return roverName
+    }
+ 
 }

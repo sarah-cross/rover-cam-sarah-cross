@@ -17,7 +17,7 @@ struct ImageDetail: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ZStack(alignment: .trailing){
-                    Text("\(image.camera.full_name)")
+                    Text("\(rover.name)\n\(image.camera.full_name)")
                         .padding()
                         .font(.footnote)
                         .frame(maxWidth: .infinity, alignment: .leading)
